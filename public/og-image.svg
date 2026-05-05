@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#020709"/>
+  <!-- Grid lines -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00ff88" stroke-width="0.3" stroke-opacity="0.12"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff88" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="600" cy="315" rx="500" ry="280" fill="url(#glow)"/>
+  <!-- Logo mark -->
+  <rect x="540" y="180" width="120" height="120" rx="24" fill="#0a1520" stroke="#00ff88" stroke-width="1" stroke-opacity="0.5"/>
+  <path d="M598 205L562 262h32l-16 40L638 246h-32l16-41z" fill="#00ff88" fill-opacity="0.9"/>
+  <!-- Wordmark -->
+  <text x="600" y="360" font-family="monospace" font-size="52" font-weight="700" fill="white" text-anchor="middle" letter-spacing="8">ABYSS AI LABS</text>
+  <!-- Tagline -->
+  <text x="600" y="410" font-family="monospace" font-size="22" fill="#00ff88" text-anchor="middle" opacity="0.8">Human Intelligence for Better AI Systems</text>
+  <!-- Bottom border accent -->
+  <line x1="200" y1="540" x2="1000" y2="540" stroke="#00ff88" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="600" y="575" font-family="monospace" font-size="16" fill="#4a7060" text-anchor="middle">abyssailabs.com</text>
+</svg>

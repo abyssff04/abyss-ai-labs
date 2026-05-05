@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts ────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
+
+/* ─── CSS Custom Properties ───────────────────────────────────────────────── */
+:root {
+  /* Light mode */
+  --background:       #f8fafb;
+  --background-2:     #eef2f7;
+  --surface:          #ffffff;
+  --surface-2:        #f1f5f9;
+  --border:           rgba(0, 0, 0, 0.08);
+  --border-strong:    rgba(0, 0, 0, 0.15);
+  --text-primary:     #0a0e14;
+  --text-secondary:   #4a5568;
+  --text-muted:       #94a3b8;
+  --neon:             #059669;
+  --neon-glow:        rgba(5, 150, 105, 0.25);
+  --neon-subtle:      rgba(5, 150, 105, 0.08);
+  --grid-line:        rgba(5, 150, 105, 0.08);
+  --scan-line:        rgba(5, 150, 105, 0.03);
+}
+
+.dark {
+  /* Dark mode */
+  --background:       #020709;
+  --background-2:     #050d12;
+  --surface:          #0a1520;
+  --surface-2:        #0d1e2e;
+  --border:           rgba(0, 255, 136, 0.08);
+  --border-strong:    rgba(0, 255, 136, 0.18);
+  --text-primary:     #e8f5ef;
+  --text-secondary:   #94b8a8;
+  --text-muted:       #4a7060;
+  --neon:             #00ff88;
+  --neon-glow:        rgba(0, 255, 136, 0.3);
+  --neon-subtle:      rgba(0, 255, 136, 0.06);
+  --grid-line:        rgba(0, 255, 136, 0.05);
+  --scan-line:        rgba(0, 255, 136, 0.02);
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--neon-glow);
+  color: var(--neon);
+}
+
+/* ─── Component Classes ───────────────────────────────────────────────────── */
+@layer components {
+
+  /* Grid background pattern */
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Neon text effect */
+  .neon-text {
+    color: var(--neon);
+    text-shadow: 0 0 20px var(--neon-glow);
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Neon border */
+  .neon-border {
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 0 0 1px var(--neon-glow) inset;
+  }
+
+  /* Section padding */
+  .section-pad {
+    @apply py-24 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Container */
+  .container-lg {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--neon) 0%, #00c9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium;
+    background: var(--neon-subtle);
+    color: var(--neon);
+    border: 1px solid var(--border-strong);
+  }
+
+  /* Scan line animation overlay */
+  .scan-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon), transparent);
+    animation: scan 4s linear infinite;
+    opacity: 0.4;
+  }
+
+  /* Score bar */
+  .score-bar {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: var(--surface-2);
+  }
+  .score-bar-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+    background: linear-gradient(90deg, var(--neon), #00c9ff);
+    box-shadow: 0 0 8px var(--neon-glow);
+  }
+
+  /* Verdict badge */
+  .verdict-winner {
+    background: var(--neon-subtle);
+    color: var(--neon);
+    border: 1px solid var(--border-strong);
+  }
+  .verdict-runner {
+    background: rgba(148, 163, 184, 0.08);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(0.5deg); }
+  66%       { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@keyframes scan {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes orbitRotate {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+/* ─── Noise texture overlay ───────────────────────────────────────────────── */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 1;
+}

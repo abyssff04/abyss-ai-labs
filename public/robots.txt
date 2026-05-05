@@ -1,0 +1,12 @@
+# robots.txt — Abyss AI Labs
+# https://abyssailabs.com
+
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+
+# Block API routes from indexing (no public content there)
+Disallow: /api/
+
+# Sitemap location — update to your production domain
+Sitemap: https://abyssailabs.com/sitemap.xml
