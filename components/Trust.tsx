@@ -209,7 +209,7 @@ export default function Trust() {
                   className="text-sm font-body leading-relaxed mb-4 italic"
                   style={{ color: 'var(--text-secondary)' }}
                 >
-                  "{t.text}"
+                  &quot;{t.text}&quot;
                 </p>
                 <footer>
                   <p

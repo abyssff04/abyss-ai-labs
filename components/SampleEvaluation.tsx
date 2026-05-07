@@ -165,7 +165,7 @@ function EvalCard({ card, index }: { card: EvalCard; index: number }) {
           Prompt
         </p>
         <p className="text-sm font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          "{card.prompt}"
+          &quot;{card.prompt}&quot;
         </p>
       </div>
 

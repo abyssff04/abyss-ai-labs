@@ -71,7 +71,7 @@ function ContactForm() {
           Message Received
         </h3>
         <p className="text-sm font-body" style={{ color: 'var(--text-secondary)' }}>
-          We'll review your request and get back to you within 24 hours.
+          We&apos;ll review your request and get back to you within 24 hours.
           Check your inbox for a confirmation.
         </p>
       </motion.div>
@@ -293,7 +293,7 @@ export default function Footer() {
               style={{ color: 'var(--text-secondary)' }}
             >
               No upfront commitment. Send us your evaluation request, and
-              we'll run a free pilot batch so you can see the quality
+              we&apos;ll run a free pilot batch so you can see the quality
               of our work before deciding.
             </p>
             <ContactForm />

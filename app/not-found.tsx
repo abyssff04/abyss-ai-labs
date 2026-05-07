@@ -80,7 +80,7 @@ export default function NotFound() {
           className="text-base font-body mb-8 leading-relaxed"
           style={{ color: 'var(--text-secondary)' }}
         >
-          The evaluation node you're looking for doesn't exist or has been
+          The evaluation node you&apos;re looking for doesn&apos;t exist or has been
           moved. Navigate back to base.
         </p>
 
